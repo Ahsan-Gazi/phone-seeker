@@ -17,9 +17,17 @@
     <div class="input-group mb-3 w-50 mx-auto">
         <input id="search-field" type="text" class="form-control" placeholder="Search the phone you want"
             aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
-            id="button-search">search</button>
+        <button onclick="searchPhone()" class="btn btn-outline-primary" type="button"
+            id="button-search">Search Phone</button>
+            <button onclick="searchAllPhone()" class="btn btn-outline-dark" type="button"
+            id="button-search">Show All</button>
     </div>
+    <section class="container">
+        <div id="spinner" class="text-center">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
     <div>
         <!-- <p id="error-message" class=" text-danger">Something went wrong please try again later</p> -->
     </div>
@@ -27,12 +35,24 @@
     <!-- single phone details -->
     <!-- <div id="phone-details" class=" w-50 mx-auto"> -->
         <!-- <div id="phone-details" class=" row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4"></div> -->
-        <div id="phone-details" class=" row row-cols-1 row-cols-md-3 row-cols-lg-3 g-3"></div>
+        <div id="phone-details" class="text-center row row-cols-1 row-cols-md-3 row-cols-lg-3 g-3"></div>
     <!-- </div> -->
-
+<!-- all result -->
+</section>
+<section class="=container">
+<div id="showAll" class="text-center row row-cols-1 row-cols-md-3 row-cols-lg-3 g-3"></div>
     <!-- phone search result -->
     <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
     </div>
+</section>
+
+    <section class="container">
+        <div id="modal-details"  class="modal" tabindex="-1">
+          <div class="modal-dialog">
+            
+          </div>
+        </div>
+      </section>
 
 
 
