@@ -2,26 +2,32 @@ document.getElementById('spinner').style.display = 'none';
 
 
 const searchPhone=async()=>{
-    document.getElementById('spinner').style.display='block'
+    
     const inputField=document.getElementById('search-field');
     const searchPhone=inputField.value;
     //console.log(searchPhone);
 
-// const url='https://openapi.programming-hero.com/api/phones?search=${searchPhone}';
-const url=`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`;
-const res=await fetch(url);
-const data=await res.json();
-  console.log(data.data);
+
+// const url=`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`;
+// const res=await fetch(url);
+// const data=await res.json();
+ 
 
   if(searchPhone==''){
 alert('Please search a phone');
 return false;
   }
-
+  else{
+    document.getElementById('spinner').style.display='block'
+    const url=`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`;
+const res=await fetch(url);
+const data=await res.json();
 displayPhoneData(data.data);
-
-
 document.getElementById('search-field').value='';
+  }
+
+// displayPhoneData(data.data);
+// document.getElementById('search-field').value='';
 
 }
 
@@ -159,80 +165,80 @@ const displayDetailByIdName=phones=>{
 // Show all phone function and details
 
 
-const searchAllPhone=async()=>{
-    const inputField=document.getElementById('search-field');
-    const searchPhone=inputField.value;
-    //console.log(searchPhone);
+// const searchAllPhone=async()=>{
+//     const inputField=document.getElementById('search-field');
+//     const searchPhone=inputField.value;
+//     //console.log(searchPhone);
 
-// const url='https://openapi.programming-hero.com/api/phones?search=${searchPhone}';
-const url=`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`;
-const res=await fetch(url);
-const data=await res.json();
-  console.log(data.data);
+// // const url='https://openapi.programming-hero.com/api/phones?search=${searchPhone}';
+// const url=`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`;
+// const res=await fetch(url);
+// const data=await res.json();
+//   console.log(data.data);
 
-  if(searchPhone==''){
-alert('Please search a phone');
-return false;
-  }
+//   if(searchPhone==''){
+// alert('Please search a phone');
+// return false;
+//   }
 
 
-        // toggleSpinner('block');
-        // toggleSearchResult('none');
-displayPhoneDataAll(data.data);
+//         // toggleSpinner('block');
+//         // toggleSearchResult('none');
+// displayPhoneDataAll(data.data);
 
-// toggleSpinner('none');
-// toggleSearchResult('block');
-document.getElementById('search-field').value='';
+// // toggleSpinner('none');
+// // toggleSearchResult('block');
+// document.getElementById('search-field').value='';
 
-}
+// }
 
-displayPhoneDataAll=(phones)=>{
+// displayPhoneDataAll=(phones)=>{
 
-    const displayPhone=document.getElementById('showAll');
-    displayPhone.textContent='';
+//     const displayPhone=document.getElementById('showAll');
+//     displayPhone.textContent='';
 
-//     const filtered=phones.filter(function(item){
-// if(this.count<21 && item>0){
-//     this.count++;
-//     return true;
-//    }
-//    return false;
-//     });
-//     console.log(filtered);
-if(phones.length>21){
-    phones.slice(0,21);
-}
+// //     const filtered=phones.filter(function(item){
+// // if(this.count<21 && item>0){
+// //     this.count++;
+// //     return true;
+// //    }
+// //    return false;
+// //     });
+// //     console.log(filtered);
+// if(phones.length>21){
+//     phones.slice(0,21);
+// }
 
 
 
     
-    if(!phones || phones.length==0){
-        alert('Result could not be found');
-    }
+//     if(!phones || phones.length==0){
+//         alert('Result could not be found');
+//     }
     
-    phones.forEach((phone)=>{
+//     phones.forEach((phone)=>{
         
        
 
-        const div=document.createElement('div');
-        div.classList.add('col')
-        div.innerHTML=`
-        <div class="card" style="width:18rem">
-        <img src="${phone.image}" class="card-img-top" alt="...."/>
-           <div class="card-body">
-           <h5 class="card-title">Brand: ${phone.brand}</h5>
-           <h5 class="card-title"> Model Name: ${phone.phone_name}</h5>
-           <button onclick="loadDetailByName('${phone.slug}')" data-bs-target="#modal-details" 
-           data-bs-toggle="modal" href="#" class="btn btn-primary">Go Details</button>
-           </div>
-        </div>
-        `;
-        displayPhone.appendChild(div);
-    });
+//         const div=document.createElement('div');
+//         div.classList.add('col')
+//         div.innerHTML=`
+//         <div class="card" style="width:18rem">
+//         <img src="${phone.image}" class="card-img-top" alt="...."/>
+//            <div class="card-body">
+//            <h5 class="card-title">Brand: ${phone.brand}</h5>
+//            <h5 class="card-title"> Model Name: ${phone.phone_name}</h5>
+//            <button onclick="loadDetailByName('${phone.slug}')" data-bs-target="#modal-details" 
+//            data-bs-toggle="modal" href="#" class="btn btn-primary">Go Details</button>
+//            </div>
+//         </div>
+//         `;
+//         displayPhone.appendChild(div);
+//     });
  
 
-    // toggleSpinner('none');
-    // toggleSearchResult('block');
-}
+//     // toggleSpinner('none');
+//     // toggleSearchResult('block');
+// }
 
 
