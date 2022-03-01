@@ -8,12 +8,23 @@ const url=`https://openapi.programming-hero.com/api/phones?search=${searchPhone}
 const res=await fetch(url);
 const data=await res.json();
  console.log(data.data);
+  
 displayPhoneData(data.data);
+document.getElementById('search-field').value='';
+
 }
 
 displayPhoneData=(phones)=>{
+
+    const displayPhone=document.getElementById('phone-details');
+    displayPhone.textContent='';
+    if(!phones || phones.length==0){
+        alert('Result could not be found');
+    }
     phones.forEach((phone)=>{
-        const displayPhone=document.getElementById('phone-details');
+        
+       
+
         const div=document.createElement('div');
         div.classList.add('col')
         div.innerHTML=`
