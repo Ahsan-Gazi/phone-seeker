@@ -125,7 +125,7 @@ const displayDetailByIdName=phones=>{
              <b>ChipSet</b>: ${phones.mainFeatures?.chipSet? phones.mainFeatures.chipSet:'Chipset not Found'}</br>
             <b>Memory</b>: ${phones.mainFeatures?.memory? phones.mainFeatures.memory:'Memory not Found'}</br>
               </p>
-              <p class="card-text"><b>Sensor</b> : ${phones.sensors? phones.sensors:'Sensor not Found'}</p>
+              <p class="card-text"><b>Sensor</b> : ${phones.mainFeatures?.sensors? phones.mainFeatures.sensors:'Sensor not Found'}</p>
                <p><b>Others:</b></br>  
              <b>WLAN</b>:  ${phones.others?.WLAN? phones.others.WLAN:'WLAN not Found'}</br>
              <b class="semi-bold">Bluetooth</b>:  ${phones.others?.Bluetooth? phones.others.Bluetooth:'Bluetooth not Found'}</br>
@@ -158,7 +158,7 @@ const displayDetailByIdName=phones=>{
 
 
 
-// Show all phone function and details
+// Show all phones  and details
 
 
 // const searchAllPhone=async()=>{
@@ -166,7 +166,7 @@ const displayDetailByIdName=phones=>{
 //     const searchPhone=inputField.value;
 //     //console.log(searchPhone);
 
-// // const url='https://openapi.programming-hero.com/api/phones?search=${searchPhone}';
+
 // const url=`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`;
 // const res=await fetch(url);
 // const data=await res.json();
