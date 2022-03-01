@@ -113,14 +113,25 @@ const displayDetailByIdName=phones=>{
             </div>
             <div class="modal-body">
             <img src="${phones.image? phones.image:'Image not found'}" class="card-img-top" alt="...."/>
-            <p class="modal-title">Brand Name: ${phones.brand? phones.brand:'Brand not found'}</p>
-              <p class="card-text">Model: ${phones.name? phones.name:'Model not found'}</p>
+            <p class="modal-title"><b>Brand Name</b>: ${phones.brand? phones.brand:'Brand not found'}</p>
+              <p class="card-text"><b>Model</b>: ${phones.name? phones.name:'Model not found'}</p>
               
-              <p class="card-text">Release Date: ${phones.releaseDate? phones.releaseDate:'Release date Not Found'}</hp>
-              <p class="card-text">Main feature: ${phones.mainFeatures.storage? phones.mainFeatures.storage:'Main feature  Not Found'}
+              <p class="card-text"><b>Release Date</b>: ${phones.releaseDate? phones.releaseDate:'Release date Not Found'}</p>
+              <p class="card-text"><b>Main feature:</b></br>
+             <b>Storage</b>: ${phones.mainFeatures.storage? phones.mainFeatures.storage:'Storage  Not Found'}</br>
+             <b>Display Size</b>: ${phones.mainFeatures.displaySize? phones.mainFeatures.displaySize:'Display size  Not Found'}</br>
+             <b>ChipSet</b>: ${phones.mainFeatures.chipSet? phones.mainFeatures.chipSet:'Chipset Not Found'}</br>
+            <b>Memory</b>: ${phones.mainFeatures.memory? phones.mainFeatures.memory:'Memory Not Found'}</br>
               </p>
-              <p class="card-text">Sensor : ${phones.sensors? phones.sensors:'Sensor date Not Found'}</p>
-               <p>Others : ${phones.others? phones.others:'Others date Not Found'}</p>
+              <p class="card-text"><b>Sensor</b> : ${phones.sensors? phones.sensors:'Sensor date Not Found'}</p>
+               <p><b>Others:</b></br>  
+             <b>WLAN</b>:  ${phones.others.WLAN? phones.others.WLAN:'WLAN Not Found'}</br>
+             <b>Bluetooth</b>:  ${phones.others.Bluetooth? phones.others.Bluetooth:'Bluetooth Not Found'}</br>
+             <b>GPS</b>: ${phones.others.GPS? phones.others.GPS:'GPS Not Found'}</br>
+             <b>NFC</b>: ${phones.others.NFC? phones.others.NFC:'NFC Not Found'}</br>
+             <b>Radio</b>:  ${phones.others.Radio? phones.others.Radio:'Radio  Not Found'}</br>
+             <b>USB</b>:  ${phones.others.USB? phones.others.USB:'USB Not Found'}</br>
+               </p>
             </div>
             <div class="modal-footer">
               <button
