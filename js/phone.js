@@ -1,17 +1,11 @@
-document.getElementById('spinner').style.display = 'none';
+
 
 
 const searchPhone=async()=>{
     
     const inputField=document.getElementById('search-field');
     const searchPhone=inputField.value;
-    //console.log(searchPhone);
-
-
-// const url=`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`;
-// const res=await fetch(url);
-// const data=await res.json();
- 
+   
 
   if(searchPhone==''){
 alert('Please search a phone');
@@ -26,19 +20,21 @@ displayPhoneData(data.data);
 document.getElementById('search-field').value='';
   }
 
-// displayPhoneData(data.data);
-// document.getElementById('search-field').value='';
 
 }
 
 const displayPhoneData=(phones)=>{
+
+    const inputField=document.getElementById('search-field');
+    const searchPhone=inputField.value;
+
     document.getElementById('spinner').style.display = 'block';
 console.log(phones);
     const displayPhone=document.getElementById('phone-details');
     displayPhone.textContent='';
 
     if(!phones || phones.length==0){
-        alert('Result could not be found');
+        alert(searchPhone+' could not be found');
     }
  
 
@@ -51,12 +47,12 @@ console.log(phones);
         div.classList.add('col')
         div.innerHTML=`
         <div class="card" style="width:18rem">
-        <img src="${phone.image}" class="card-img-top" alt="...."/>
+        <img src="${phone.image?phone.image:'Image not found'}" class="card-img-top" alt="...."/>
            <div class="card-body">
-           <h5 class="card-title">Brand: ${phone.brand}</h5>
-           <h5 class="card-title"> Model Name: ${phone.phone_name}</h5>
-           <button onclick="loadDetailByName('${phone.slug}')" data-bs-target="#modal-details" 
-           data-bs-toggle="modal" href="#" class="btn btn-primary">Go Details</button>
+           <h5 class="card-title">Brand: ${phone.brand?phone.brand:'Brand not found'}</h5>
+           <h5 class="card-title"> Model Name: ${phone.phone_name?phone.phone_name:'Model not found'}</h5>
+           <button onclick="loadDetailByName('${phone.slug?phone.slug:"not found"}')" data-bs-target="#modal-details" 
+           data-bs-toggle="modal" href="#" class="btn btn-primary">See Details</button>
            </div>
         </div>
         `;
@@ -124,19 +120,19 @@ const displayDetailByIdName=phones=>{
               
               <p class="card-text"><b>Release Date</b>: ${phones.releaseDate? phones.releaseDate:'Release date Not Found'}</p>
               <p class="card-text"><b>Main feature:</b></br>
-             <b>Storage</b>: ${phones.mainFeatures.storage? phones.mainFeatures.storage:'Storage  Not Found'}</br>
-             <b>Display Size</b>: ${phones.mainFeatures.displaySize? phones.mainFeatures.displaySize:'Display size  Not Found'}</br>
-             <b>ChipSet</b>: ${phones.mainFeatures.chipSet? phones.mainFeatures.chipSet:'Chipset Not Found'}</br>
-            <b>Memory</b>: ${phones.mainFeatures.memory? phones.mainFeatures.memory:'Memory Not Found'}</br>
+             <b>Storage</b>: ${phones.mainFeatures?.storage? phones.mainFeatures.storage:'Storage  not Found'}</br>
+             <b>Display Size</b>: ${phones.mainFeatures?.displaySize? phones.mainFeatures.displaySize:'Display size  not Found'}</br>
+             <b>ChipSet</b>: ${phones.mainFeatures?.chipSet? phones.mainFeatures.chipSet:'Chipset not Found'}</br>
+            <b>Memory</b>: ${phones.mainFeatures?.memory? phones.mainFeatures.memory:'Memory not Found'}</br>
               </p>
-              <p class="card-text"><b>Sensor</b> : ${phones.sensors? phones.sensors:'Sensor date Not Found'}</p>
+              <p class="card-text"><b>Sensor</b> : ${phones.sensors? phones.sensors:'Sensor not Found'}</p>
                <p><b>Others:</b></br>  
-             <b>WLAN</b>:  ${phones.others.WLAN? phones.others.WLAN:'WLAN Not Found'}</br>
-             <b>Bluetooth</b>:  ${phones.others.Bluetooth? phones.others.Bluetooth:'Bluetooth Not Found'}</br>
-             <b>GPS</b>: ${phones.others.GPS? phones.others.GPS:'GPS Not Found'}</br>
-             <b>NFC</b>: ${phones.others.NFC? phones.others.NFC:'NFC Not Found'}</br>
-             <b>Radio</b>:  ${phones.others.Radio? phones.others.Radio:'Radio  Not Found'}</br>
-             <b>USB</b>:  ${phones.others.USB? phones.others.USB:'USB Not Found'}</br>
+             <b>WLAN</b>:  ${phones.others?.WLAN? phones.others.WLAN:'WLAN not Found'}</br>
+             <b class="semi-bold">Bluetooth</b>:  ${phones.others?.Bluetooth? phones.others.Bluetooth:'Bluetooth not Found'}</br>
+             <b>GPS</b>: ${phones.others?.GPS? phones.others.GPS:'GPS not Found'}</br>
+             <b>NFC</b>: ${phones.others?.NFC? phones.others.NFC:'NFC not Found'}</br>
+             <b>Radio</b>:  ${phones.others?.Radio? phones.others.Radio:'Radio  not Found'}</br>
+             <b>USB</b>:  ${phones.others?.USB? phones.others.USB:'USB not Found'}</br>
                </p>
             </div>
             <div class="modal-footer">
